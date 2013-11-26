@@ -83,6 +83,14 @@ typedef NS_ENUM(NSInteger,TSMessageNotificationDuration) {
                                 subtitle:(NSString *)subtitle
                                     type:(TSMessageNotificationType)type;
 
++ (void)showNotificationInViewController:(UIViewController *)viewController
+                                   title:(NSString *)title
+                                subtitle:(NSString *)subtitle
+                                   image:(UIImage *)image
+                                    type:(TSMessageNotificationType)type
+                                duration:(TSMessageNotificationDuration)duration;
+
+
 /** Shows a notification message in a specific view controller
  @param viewController The view controller to show the notification in.
  @param title The title of the notification view

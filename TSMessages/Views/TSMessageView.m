@@ -12,7 +12,7 @@
 #import "TSMessage.h"
 
 
-#define TSMessageViewPadding 15.0
+#define TSMessageViewPadding 8.0 // PAUL: was 15.0
 
 #define TSDesignFileName @"TSMessagesDefaultDesign.json"
 
@@ -163,7 +163,8 @@ static NSMutableDictionary *_notificationDesign;
             // On iOS 7 and above use a blur layer instead (not yet finished)
             _backgroundBlurView = [[TSBlurView alloc] init];
             self.backgroundBlurView.autoresizingMask = (UIViewAutoresizingFlexibleWidth);
-            self.backgroundBlurView.blurTintColor = [UIColor colorWithHexString:current[@"backgroundColor"]];
+//            self.backgroundBlurView.blurTintColor = [UIColor colorWithHexString:current[@"backgroundColor"]];
+            self.backgroundBlurView.backgroundColor = [[UIColor colorWithHexString:current[@"backgroundColor"]] colorWithAlphaComponent:0.95];
             [self addSubview:self.backgroundBlurView];
         }
         
@@ -171,8 +172,8 @@ static NSMutableDictionary *_notificationDesign;
                                                    alpha:1.0];
         
         
-        self.textSpaceLeft = 2 * TSMessageViewPadding;
-        if (image) self.textSpaceLeft += image.size.width + 2 * TSMessageViewPadding;
+        self.textSpaceLeft = TSMessageViewPadding; // PAUL: 2 *
+        if (image) self.textSpaceLeft += image.size.width + TSMessageViewPadding; // PAUL: 2 *
         
         // Set up title label
         _titleLabel = [[UILabel alloc] init];
@@ -186,9 +187,9 @@ static NSMutableDictionary *_notificationDesign;
         } else {
             [self.titleLabel setFont:[UIFont boldSystemFontOfSize:fontSize]];
         }
-        [self.titleLabel setShadowColor:[UIColor colorWithHexString:[current valueForKey:@"shadowColor"] alpha:1.0]];
-        [self.titleLabel setShadowOffset:CGSizeMake([[current valueForKey:@"shadowOffsetX"] floatValue],
-                                                    [[current valueForKey:@"shadowOffsetY"] floatValue])];
+//        [self.titleLabel setShadowColor:[UIColor colorWithHexString:[current valueForKey:@"shadowColor"] alpha:1.0]];
+//        [self.titleLabel setShadowOffset:CGSizeMake([[current valueForKey:@"shadowOffsetX"] floatValue],
+//                                                    [[current valueForKey:@"shadowOffsetY"] floatValue])];
         self.titleLabel.numberOfLines = 0;
         self.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
         [self addSubview:self.titleLabel];
@@ -199,7 +200,7 @@ static NSMutableDictionary *_notificationDesign;
             _contentLabel = [[UILabel alloc] init];
             [self.contentLabel setText:subtitle];
             
-            UIColor *contentTextColor = [UIColor colorWithHexString:[current valueForKey:@"contentTextColor"] alpha:1.0];
+            UIColor *contentTextColor = [UIColor colorWithHexString:[current valueForKey:@"contentTextColor"] alpha:0.8];
             if (!contentTextColor)
             {
                 contentTextColor = fontColor;
@@ -213,8 +214,8 @@ static NSMutableDictionary *_notificationDesign;
             } else {
                 [self.contentLabel setFont:[UIFont systemFontOfSize:fontSize]];
             }
-            [self.contentLabel setShadowColor:self.titleLabel.shadowColor];
-            [self.contentLabel setShadowOffset:self.titleLabel.shadowOffset];
+//            [self.contentLabel setShadowColor:self.titleLabel.shadowColor];
+//            [self.contentLabel setShadowOffset:self.titleLabel.shadowOffset];
             self.contentLabel.lineBreakMode = self.titleLabel.lineBreakMode;
             self.contentLabel.numberOfLines = 0;
             
@@ -224,7 +225,7 @@ static NSMutableDictionary *_notificationDesign;
         if (image)
         {
             _iconImageView = [[UIImageView alloc] initWithImage:image];
-            self.iconImageView.frame = CGRectMake(TSMessageViewPadding * 2,
+            self.iconImageView.frame = CGRectMake(TSMessageViewPadding, // PAUL: * 2
                                                   TSMessageViewPadding,
                                                   image.size.width,
                                                   image.size.height);
@@ -350,7 +351,7 @@ static NSMutableDictionary *_notificationDesign;
     if ([self.subtitle length])
     {
         self.contentLabel.frame = CGRectMake(self.textSpaceLeft,
-                                             self.titleLabel.frame.origin.y + self.titleLabel.frame.size.height + 5.0,
+                                             self.titleLabel.frame.origin.y + self.titleLabel.frame.size.height + 0.0, // PAUL: was 5.0
                                              screenWidth - TSMessageViewPadding - self.textSpaceLeft - self.textSpaceRight,
                                              0.0);
         [self.contentLabel sizeToFit];
@@ -363,7 +364,7 @@ static NSMutableDictionary *_notificationDesign;
         currentHeight = self.titleLabel.frame.origin.y + self.titleLabel.frame.size.height;
     }
     
-    currentHeight += TSMessageViewPadding;
+    currentHeight += TSMessageViewPadding + TSMessageViewPadding / 2;
     
     if (self.iconImageView)
     {

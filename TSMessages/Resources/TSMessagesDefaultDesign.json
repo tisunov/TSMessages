@@ -28,14 +28,14 @@
         "buttonTitleShadowColor": "#EBEEF1",
         "buttonTitleShadowOffsetX": 0,
         "buttonTitleShadowOffsetY": 1,
-        "contentFontSize": 12,
+        "contentFontSize": 14,
         "contentTextColor": "#727C83",
         "imageName": "",
         "shadowColor": "#EBEEF1",
         "shadowOffsetX": 0,
         "shadowOffsetY": 1,
         "textColor": "#727C83",
-        "titleFontSize": 14,
+        "titleFontSize": 18,
         "backgroundColor": "#D4DDDF"
     },
     "warning": {
@@ -43,18 +43,18 @@
         "borderColor": "#A28918",
         "borderHeight": 1,
         "buttonBackgroundImageName": "NotificationButtonBackground.png",
-        "buttonTitleTextColor": "#484638",
+        "buttonTitleTextColor": "#FFFFFF",
         "buttonTitleShadowColor": "#E5D87C",
         "buttonTitleShadowOffsetX": 0,
         "buttonTitleShadowOffsetY": 1,
-        "contentFontSize": 12,
-        "contentTextColor": "#484638",
+        "contentFontSize": 14,
+        "contentTextColor": "#FFFFFF",
         "imageName": "NotificationBackgroundWarningIcon.png",
         "shadowColor": "#E5D87C",
         "shadowOffsetX": 0,
         "shadowOffsetY": 1,
-        "textColor": "#484638",
-        "titleFontSize": 14,
+        "textColor": "#FFFFFF",
+        "titleFontSize": 18,
         "backgroundColor": "#DAC43C"
     },
     "error": {
@@ -66,14 +66,14 @@
         "buttonTitleShadowColor": "#812929",
         "buttonTitleShadowOffsetX": 0,
         "buttonTitleShadowOffsetY": -1,
-        "contentFontSize": 12,
+        "contentFontSize": 14,
         "contentTextColor": "#FFFFFF",
         "imageName": "NotificationBackgroundErrorIcon.png",
         "shadowColor": "#812929",
         "shadowOffsetX": 0,
         "shadowOffsetY": -1,
         "textColor": "#FFFFFF",
-        "titleFontSize": 14,
-        "backgroundColor": "#DD3B41"
+        "titleFontSize": 18,
+        "backgroundColor": "#b30f16"
     }
 }
