@@ -29,14 +29,14 @@
         "buttonTitleShadowOffsetX": 0,
         "buttonTitleShadowOffsetY": 1,
         "contentFontSize": 14,
-        "contentTextColor": "#727C83",
+        "contentTextColor": "#FFFFFF",
         "imageName": "",
         "shadowColor": "#EBEEF1",
         "shadowOffsetX": 0,
         "shadowOffsetY": 1,
-        "textColor": "#727C83",
+        "textColor": "#FFFFFF",
         "titleFontSize": 18,
-        "backgroundColor": "#D4DDDF"
+        "backgroundColor": "#1b80fb"
     },
     "warning": {
         "backgroundImageName": "NotificationBackgroundWarning.png",
