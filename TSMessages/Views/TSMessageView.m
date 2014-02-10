@@ -343,7 +343,7 @@ static NSMutableDictionary *_notificationDesign;
     
     
     self.titleLabel.frame = CGRectMake(self.textSpaceLeft,
-                                       TSMessageViewPadding,
+                                       TSMessageViewPadding + [UIApplication sharedApplication].statusBarFrame.size.height,
                                        screenWidth - TSMessageViewPadding - self.textSpaceLeft - self.textSpaceRight,
                                        0.0);
     [self.titleLabel sizeToFit];
@@ -377,7 +377,7 @@ static NSMutableDictionary *_notificationDesign;
         {
             // z-align
             self.iconImageView.center = CGPointMake([self.iconImageView center].x,
-                                                    round(currentHeight / 2.0));
+                                                    round(currentHeight / 2.0) + 7.0); // PAUL:
         }
     }
     
