@@ -12,7 +12,7 @@
 #import "TSMessage.h"
 
 
-#define TSMessageViewPadding 8.0 // PAUL: was 15.0
+#define TSMessageViewPadding 5.0 // PAUL: was 15.0
 
 #define TSDesignFileName @"TSMessagesDefaultDesign.json"
 
@@ -172,8 +172,8 @@ static NSMutableDictionary *_notificationDesign;
                                                    alpha:1.0];
         
         
-        self.textSpaceLeft = TSMessageViewPadding; // PAUL: 2 *
-        if (image) self.textSpaceLeft += image.size.width + TSMessageViewPadding; // PAUL: 2 *
+        self.textSpaceLeft = TSMessageViewPadding; // PAUL: was 2 *
+        if (image) self.textSpaceLeft += image.size.width + TSMessageViewPadding; // PAUL: was 2 *
         
         // Set up title label
         _titleLabel = [[UILabel alloc] init];
@@ -225,7 +225,7 @@ static NSMutableDictionary *_notificationDesign;
         if (image)
         {
             _iconImageView = [[UIImageView alloc] initWithImage:image];
-            self.iconImageView.frame = CGRectMake(TSMessageViewPadding, // PAUL: * 2
+            self.iconImageView.frame = CGRectMake(TSMessageViewPadding, // PAUL: was * 2
                                                   TSMessageViewPadding,
                                                   image.size.width,
                                                   image.size.height);
